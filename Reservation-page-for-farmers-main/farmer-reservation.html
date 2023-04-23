@@ -1,73 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale-1.0" />
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale-1.0">
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap"
+			rel="stylesheet"
+		/>
 
-    <link rel="stylesheet" href="farmer-reservation.css">
+		<link rel="stylesheet" href="farmer-reservation.css" />
 
-    <title>Farmer Reservation</title>
-</head>
+		<title>Farmer Reservation</title>
+	</head>
 
-
-
-<body>
-    <div class ="bf-container">
-
-        <div class="bf-body">
-
-            <div class ="bf-head">
-                <h1>Farmer Reservation</h1>
-                <p>--Please enter the details--</p>
-
-            </div>
-
-            <form class="bf-body-box" action="form.php">
-                <div class="bf-row">
-                    <div class="bf-col-6">
-                        <p>Your Name</p>
-                        <input type="text" name="fname" id="fname" placeholder="Your Name">
-                    </div>
-
-                    <div class="bf-col-6">
-                        <p>Email</p>
-                        <input type="email" name="email" id="email" placeholder="Email">
-                        <br>
-                    </div>
-                    
-                    <div class="bf-col-6">
-                        <p>Item Name</p>
-                        <input type="text" name="fname" id="fname" placeholder="Item Name">
-                    </div>
-
-                    <div class="bf-col-6">
-                        <p>Start Date</p>
-                        <input type="date" name="date" id="date">
-                    </div>
-                    <div class="bf-col-6">
-                        <p>End Date</p>
-                        <input type="date" name="date" id="date">
-                    </div>
-                    <div class="bf-col-6">
-                        <p>Quantity (in kgs)</p>
-                        <input type="number" name="number" id="number">
-                        
-                    </div>
-                    <div class="bf-col-12">
-                        <p>Comments</p>
-                        <textarea name="Comments" id="Comments" cols="10" rows="1"></textarea>
-                    </div>
-                    <div class="bf-col-3">
-                        <input type="submit" value="submit" id="submit">
-                    </div>               
-                </div>
-            </form>
-
-        </div>
-    </div>
-    <div class="side"></div>
-</body>
+	<body>
+		<div class="container">
+			<div class="title">Registration</div>
+			<div class="content">
+				<form action="#">
+					<div class="user-details">
+						<div class="input-box">
+							<span class="details">Full Name</span>
+							<input
+								type="text"
+								name="fname"
+								id="fname"
+								placeholder="Enter your name"
+								required
+							/>
+						</div>
+						<div class="input-box">
+							<span class="details">Email</span>
+							<input
+								type="email"
+								name="email"
+								id="email"
+								placeholder="Enter your username"
+								required
+							/>
+						</div>
+						<div class="input-box">
+							<span class="details">Start Date</span>
+							<input type="date" name="date" id="date" required />
+						</div>
+						<div class="input-box">
+							<span class="details">End Date</span>
+							<input type="date" name="date" id="date" required />
+						</div>
+						<div class="input-box">
+							<span class="details">Item Name</span>
+							<input
+								type="text"
+								name="fname"
+								id="fname"
+								placeholder="Enter Item Name"
+								required
+							/>
+						</div>
+						<div class="input-box">
+							<span class="details">Quantity (in kgs)</span>
+							<input
+								type="number"
+								name="number"
+								id="number"
+								required
+							/>
+						</div>
+					</div>
+					<div class="button">
+						<input type="submit" value="Register" />
+					</div>
+				</form>
+			</div>
+		</div>
+	</body>
 </html>
-
-                
