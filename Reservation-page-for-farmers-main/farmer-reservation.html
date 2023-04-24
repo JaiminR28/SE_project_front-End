@@ -11,7 +11,11 @@
 			rel="stylesheet"
 		/>
 
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
 		<link rel="stylesheet" href="farmer-reservation.css" />
+
+		<script defer src="./script.js"></script>
 
 		<title>Farmer Reservation</title>
 	</head>
@@ -23,7 +27,7 @@
 				<form action="#">
 					<div class="user-details">
 						<div class="input-box">
-							<span class="details">Full Name</span>
+							<label class="details">Full Name </label>
 							<input
 								type="text"
 								name="fname"
@@ -33,7 +37,7 @@
 							/>
 						</div>
 						<div class="input-box">
-							<span class="details">Email</span>
+							<label class="details">Email</label>
 							<input
 								type="email"
 								name="email"
@@ -43,15 +47,25 @@
 							/>
 						</div>
 						<div class="input-box">
-							<span class="details">Start Date</span>
-							<input type="date" name="date" id="date" required />
+							<label class="details">Start Date</label>
+							<input
+								type="date"
+								name="date"
+								id="startDate"
+								required
+							/>
 						</div>
 						<div class="input-box">
-							<span class="details">End Date</span>
-							<input type="date" name="date" id="date" required />
+							<label class="details">End Date</label>
+							<input
+								type="date"
+								name="date"
+								id="endDate"
+								required
+							/>
 						</div>
 						<div class="input-box">
-							<span class="details">Item Name</span>
+							<label class="details">Item Name</label>
 							<input
 								type="text"
 								name="fname"
@@ -61,11 +75,12 @@
 							/>
 						</div>
 						<div class="input-box">
-							<span class="details">Quantity (in kgs)</span>
+							<label class="details">Quantity (in kgs)</label>
 							<input
 								type="number"
 								name="number"
 								id="number"
+								min="0"
 								required
 							/>
 						</div>
