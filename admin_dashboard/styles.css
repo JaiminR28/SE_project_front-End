@@ -150,7 +150,9 @@ aside {
 	background-color: rgb(240, 234, 234);
 	width: 20%;
 }
-
+.navbar--menu-icon{
+	width: 1.6rem;
+}
 aside .top {
 	/* background: white; */
 	/* position: fixed; */
@@ -161,7 +163,7 @@ aside .top {
 }
 aside .logo {
 	display: flex;
-	gap: 0.8rem;
+	gap: 2rem;
 }
 
 aside .logo img {
@@ -187,6 +189,7 @@ aside .logo img {
 }
 
 aside h3 {
+	font-size: 1.6rem;
 	font-weight: 500;
 }
 
@@ -199,6 +202,7 @@ aside .sidebar a {
 	position: relative;
 	height: 3.7rem;
 	transition: all 300ms ease;
+	margin-bottom: 1.2rem;
 }
 aside .sidebar a span {
 	font-size: 1.6rem;
