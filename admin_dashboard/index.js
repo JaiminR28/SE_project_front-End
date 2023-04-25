@@ -3,75 +3,23 @@ const menuBtn = document.querySelector("#menu-btn");
 const closeBtn = document.querySelector("#close-btn");
 const themeToggler = document.querySelector(".theme-toggler");
 let newsBlockEl = document.querySelector(".news--blocks--div");
+let DateEl = document.querySelector(".date--span");
 
-console.log(newsBlockEl);
+// Weather elements
+const weather_img = document.querySelector(".weather-img");
+const temperature = document.querySelector(".temperature");
+const description = document.querySelector(".description");
+const humidity = document.getElementById("humidity");
+const wind_speed = document.getElementById("wind-speed");
+const userLocationEl = document.querySelector(".user--location");
+const lastdateEl = document.querySelector(".weather-update-date");
 
 // Urls
 
 const NEWS_API =
-	"https://newsapi.org/v2/everything?q=agriculture&from=2023-03-24&sources=the-times-of-india&sortBy=publishedAt&apiKey=1713d3c967ed4defab26f9996b21716a";
+	"https://newsapi.org/v2/everything?q=agriculture&from=2023-03-25&sortBy=publishedAt&apiKey=1713d3c967ed4defab26f9996b21716as";
 
-//show sidebar
-menuBtn.addEventListener("click", () => {
-	sideMenu.style.display = "block";
-});
-
-//close sidebar
-closeBtn.addEventListener("click", () => {
-	sideMenu.style.display = "none";
-});
-
-//change theme
-themeToggler.addEventListener("click", () => {
-	document.body.classList.toggle("dark-theme-variables");
-
-	themeToggler.querySelector("span:nth-child(1)").classList.toggle("active");
-	themeToggler.querySelector("span:nth-child(2)").classList.toggle("active");
-});
-
-const displayNews = async () => {
-	let results;
-	try {
-		const response = await fetch(NEWS_API);
-		// console.log(response);
-		results = await response.json();
-	} catch (error) {
-		console.error(error);
-	}
-
-	console.log(results.articles);
-
-	insertNewsArticles(results.articles);
-};
-
-const insertNewsArticles = (articles) => {
-	for (let i = 6; i <= 14; i++) {
-		const { title, description, url, urlToImage, publishedAt } =
-			articles[i];
-
-		const html = `
-        						<div class="news-block">
-							<img
-								class="news--img"
-								src=${urlToImage}
-								alt="image--source image"
-							/>
-							<div class="news--details">
-								<a href=${url}
-									><h3 class="news--heading">${title}
-									</h3></a
-								>
-								<p class="news-description">${description}
-								</p>
-								<h6 class="news--date">${publishedAt}</h6>
-							</div>
-						</div>
-    `;
-		newsBlockEl.innerHTML += html;
-	}
-};
-
-displayNews();
+const cropsToMonitor = ["wheat", "rice", "corn", "sugar", "milk"];
 
 const agriNews = [
 	{
@@ -251,3 +199,148 @@ const agriNews = [
 			"Volunteers in dozens of countries were set to plant trees, clean up trash and urge governments to do more to combat climate change to mark Earth Day, as scientists warn of more extreme weather and re… [+1951 chars]",
 	},
 ];
+
+//show sidebar
+menuBtn.addEventListener("click", () => {
+	sideMenu.style.display = "block";
+});
+
+//close sidebar
+closeBtn.addEventListener("click", () => {
+	sideMenu.style.display = "none";
+});
+
+//change theme
+themeToggler.addEventListener("click", () => {
+	document.body.classList.toggle("dark-theme-variables");
+
+	themeToggler.querySelector("span:nth-child(1)").classList.toggle("active");
+	themeToggler.querySelector("span:nth-child(2)").classList.toggle("active");
+});
+
+// Set current Date :
+let date = new Date().toLocaleDateString();
+DateEl.innerHTML = `Date: ${date}`;
+
+// const displayNews = async () => {
+// 	let results;
+// 	try {
+// 		const response = await fetch(NEWS_API);
+// 		// console.log(response);
+// 		results = await response.json();
+// 	} catch (error) {
+// 		console.error(error);
+// 	}
+
+// 	console.log(results.articles);
+
+// };
+
+const insertNewsArticles = (articles) => {
+	for (let i = 4; i <= 10; i++) {
+		const html = `
+        						<div class="news-block">
+							<img
+								class="news--img"
+								src=${articles[i].urlToImage}
+								alt="image--source image"
+							/>
+							<div class="news--details">
+								<a href=${articles[i].url}
+									><h3 class="news--heading">${articles[i].title}
+									</h3></a
+								>
+								<p class="news-description">${articles[i].description}
+								</p>
+								<h6 class="news--date">published at : ${articles[i].publishedAt.slice(
+									0,
+									10
+								)}</h6>
+							</div>
+						</div>
+    `;
+		newsBlockEl.innerHTML += html;
+	}
+};
+
+// displayNews();
+
+insertNewsArticles(agriNews);
+
+// Weather
+
+const location_not_found = document.querySelector(".location-not-found");
+
+const weather_body = document.querySelector(".weather-body");
+
+function getLocation() {
+	let longitude, latitude;
+	if (navigator.geolocation) {
+		navigator.geolocation.getCurrentPosition((location) => {
+			checkWeather(location.coords);
+		});
+	}
+}
+
+async function checkWeather(coords) {
+	const latitude = coords.latitude;
+	const longitude = coords.longitude;
+	const url = `https://weatherapi-com.p.rapidapi.com/current.json?q=${latitude}1%2C${longitude}`;
+	const options = {
+		method: "GET",
+		headers: {
+			"content-type": "application/octet-stream",
+			"X-RapidAPI-Key":
+				"8048530456mshd702a7e93d8d947p133668jsn0dcdbe319bbd",
+			"X-RapidAPI-Host": "weatherapi-com.p.rapidapi.com",
+		},
+	};
+
+	try {
+		const response = await fetch(url, options);
+		const result = await response.text();
+	} catch (error) {
+		console.error(error);
+	}
+	const weather_data = await fetch(`${url}`).then((response) =>
+		response.json()
+	);
+
+	if (weather_data.cod === `404`) {
+		location_not_found.style.display = "flex";
+		weather_body.style.display = "none";
+		console.log("error");
+		return;
+	}
+
+	userLocationEl.innerHTML = `${weather_data.location.name}, ${weather_data.location.region}`;
+	lastdateEl.innerHTML = `${weather_data.current.last_updated}`;
+
+	location_not_found.style.display = "none";
+	weather_body.style.display = "flex";
+	temperature.innerHTML = `${weather_data.current.temp_c}°C`;
+	description.innerHTML = `${weather_data.current.condition.text}`;
+
+	humidity.innerHTML = `${weather_data.current.humidity}%`;
+	wind_speed.innerHTML = `${weather_data.current.wind_kph}Km/H`;
+
+	switch (weather_data.current.condition.text) {
+		case "Overcast":
+			weather_img.src = "./Images/Weather/cloud.png";
+			break;
+		case "Sunny":
+			weather_img.src = "./Images/Weather/clear.png";
+			break;
+		case "Rain":
+			weather_img.src = "./Images/Weather/rain.png";
+			break;
+		case "Mist":
+			weather_img.src = "./Images/Weather/mist.png";
+			break;
+		case "Snow":
+			weather_img.src = "./Images/Weather/snow.png";
+			break;
+	}
+}
+
+getLocation();

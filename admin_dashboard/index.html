@@ -35,39 +35,23 @@
 					</div>
 				</div>
 				<div class="sidebar">
-					<a href="#">
+					<a href="#" class="active">
 						<span class="material-icons">person_outline</span>
 						<h3>Home</h3>
 					</a>
 
-					<a href="#" class="active">
+					<a href="#">
 						<span class="material-icons">person_outline</span>
-						<h3>Dashboard2</h3>
+						<h3>Registraion</h3>
 					</a>
 
 					<a href="#">
 						<span class="material-icons">person_outline</span>
-						<h3>Dashboard3</h3>
+						<h3>Modify Registraion</h3>
 					</a>
 					<a href="#">
 						<span class="material-icons">person_outline</span>
-						<h3>Dashboard4</h3>
-					</a>
-
-					<a href="#">
-						<span class="material-icons">person_outline</span>
-						<h3>Dashboard5</h3>
-					</a>
-
-					<a href="#">
-						<span class="material-icons">person_outline</span>
-						<h3>Dashboard6</h3>
-						<span class="message-count">26</span>
-					</a>
-
-					<a href="#" class="active">
-						<span class="material-icons">person_outline</span>
-						<h3>Dashboard7</h3>
+						<h3>Nearby Warehouse's</h3>
 					</a>
 
 					<a href="#">
@@ -80,7 +64,7 @@
 			<main>
 				<h1 class="page--title">Dashboard</h1>
 				<div class="date">
-					<span>Date : 23 / 04 /2023 </span>
+					<span class="date--span"> </span>
 				</div>
 				<div class="profile-title">
 					<h1 class="user--name--column">
@@ -99,6 +83,63 @@
 				<div class="weather-price-div">
 					<div class="weather--container">
 						<h2>weather</h2>
+						<div class="weather">
+							<div class="header">
+								<div class="location">
+									<img
+										class="location--svg"
+										src="./Images/Weather/location.svg"
+										alt="location icon"
+									/>
+									<h3 class="user--location"></h3>
+								</div>
+								<div class="last-updated-div">
+									<p>last updated:</p>
+									<p class="weather-update-date">date</p>
+								</div>
+							</div>
+
+							<div class="location-not-found">
+								<h1>Sorry, Location not found!!!</h1>
+								<img
+									src="Images/Weather/404.png"
+									alt="404 Error"
+								/>
+							</div>
+
+							<div class="weather-body">
+								<img
+									src="Images/Weather/cloud.png"
+									alt="Weather Image"
+									class="weather-img"
+								/>
+
+								<div class="weather-box">
+									<p class="temperature">0 <sup>°C</sup></p>
+									<p class="description">light rain</p>
+								</div>
+
+								<div class="weather-details">
+									<div class="humidity">
+										<i
+											class="fa-sharp fa-solid fa-droplet"
+										></i>
+										<div class="text">
+											<span id="humidity">45%</span>
+											<p>Humidity</p>
+										</div>
+									</div>
+
+									<div class="wind">
+										<i class="fa-solid fa-wind"></i>
+										<div class="text">
+											<span id="wind-speed">12Km/H</span>
+											<p>Wind Speed</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
 					</div>
 					<div class="crop--pricing">
 						<h2>Crop pricings</h2>
