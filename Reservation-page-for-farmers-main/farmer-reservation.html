@@ -22,74 +22,130 @@
 
 	<body>
 		<div class="container">
-			<div class="title">Registration</div>
-			<div class="content">
-				<form action="#">
-					<div class="user-details">
-						<div class="input-box">
-							<label class="details">Full Name </label>
-							<input
-								type="text"
-								name="fname"
-								id="fname"
-								placeholder="Enter your name"
-								required
-							/>
-						</div>
-						<div class="input-box">
-							<label class="details">Email</label>
-							<input
-								type="email"
-								name="email"
-								id="email"
-								placeholder="Enter your username"
-								required
-							/>
-						</div>
-						<div class="input-box">
-							<label class="details">Start Date</label>
-							<input
-								type="date"
-								name="date"
-								id="startDate"
-								required
-							/>
-						</div>
-						<div class="input-box">
-							<label class="details">End Date</label>
-							<input
-								type="date"
-								name="date"
-								id="endDate"
-								required
-							/>
-						</div>
-						<div class="input-box">
-							<label class="details">Item Name</label>
-							<input
-								type="text"
-								name="fname"
-								id="fname"
-								placeholder="Enter Item Name"
-								required
-							/>
-						</div>
-						<div class="input-box">
-							<label class="details">Quantity (in kgs)</label>
-							<input
-								type="number"
-								name="number"
-								id="number"
-								min="0"
-								required
-							/>
-						</div>
+			<aside>
+				<div class="top">
+					<div class="logo">
+						<img src="wh_logo.png" />
+						<h2>WAREHOUSE</h2>
 					</div>
-					<div class="button">
-						<input type="submit" value="Register" />
-					</div>
-				</form>
-			</div>
+					<div class="close" id="close-btn"></div>
+				</div>
+				<div class="sidebar">
+					<a href="#">
+						<img
+							src="./Images/navbar/home-svgrepo-com.svg"
+							alt=""
+							class="navbar--menu-icon"
+						/>
+						<h3>Home</h3>
+					</a>
+
+					<a href="./farmer-reservation.html" class="active">
+						<img
+							src="./Images/navbar/register-svgrepo-com.svg"
+							alt=""
+							class="navbar--menu-icon"
+						/>
+						<h3>Registraion</h3>
+					</a>
+
+					<a href="#">
+						<img
+							src="./Images/navbar/file-edit-svgrepo-com.svg"
+							alt=""
+							class="navbar--menu-icon"
+						/>
+						<h3>Modify Registraion</h3>
+					</a>
+					<a href="../SE_Nearby_warehouse/index.html">
+						<img
+							src="./Images/navbar/warehouse-svgrepo-com.svg"
+							alt=""
+							class="navbar--menu-icon"
+						/>
+						<h3>Nearby Warehouse's</h3>
+					</a>
+
+					<a href="#">
+						<img
+							class="navbar--menu-icon"
+							src="./Images/navbar/logout-svgrepo-com.svg"
+							alt=""
+						/>
+						<h3>Logout</h3>
+					</a>
+				</div>
+			</aside>
+			<main>
+				<div class="title">Registration</div>
+				<div class="content">
+					<form action="#">
+						<div class="user-details">
+							<div class="input-box">
+								<label class="details">Full Name </label>
+								<input
+									type="text"
+									name="fname"
+									id="fname"
+									placeholder="Enter your name"
+									required
+								/>
+							</div>
+							<div class="input-box">
+								<label class="details">Email</label>
+								<input
+									type="email"
+									name="email"
+									id="email"
+									placeholder="Enter your username"
+									required
+								/>
+							</div>
+							<div class="input-box">
+								<label class="details">Start Date</label>
+								<input
+									type="date"
+									name="date"
+									id="startDate"
+									required
+								/>
+							</div>
+							<div class="input-box">
+								<label class="details">End Date</label>
+								<input
+									type="date"
+									name="date"
+									id="endDate"
+									required
+								/>
+							</div>
+							<div class="input-box">
+								<label class="details">Item Name</label>
+								<input
+									type="text"
+									name="fname"
+									id="fname"
+									placeholder="Enter Item Name"
+									required
+								/>
+							</div>
+							<div class="input-box">
+								<label class="details">Quantity (in kgs)</label>
+								<input
+									type="number"
+									name="number"
+									id="number"
+									min="0"
+									required
+								/>
+							</div>
+						</div>
+						<div class="button">
+							<input type="submit" value="Register" />
+						</div>
+					</form>
+				</div>
+			</main>
 		</div>
 	</body>
 </html>

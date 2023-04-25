@@ -14,12 +14,16 @@ const wind_speed = document.getElementById("wind-speed");
 const userLocationEl = document.querySelector(".user--location");
 const lastdateEl = document.querySelector(".weather-update-date");
 
+// coomodity price elements
+const wheatPriceEl = document.querySelector(".wheat--price");
+const ricePriceEl = document.querySelector(".rice--price");
+const cornPriceEl = document.querySelector(".corn--price");
 // Urls
 
 const NEWS_API =
 	"https://newsapi.org/v2/everything?q=agriculture&from=2023-03-25&sortBy=publishedAt&apiKey=1713d3c967ed4defab26f9996b21716as";
 
-const cropsToMonitor = ["wheat", "rice", "corn", "sugar", "milk"];
+const cropsToMonitor = ["wheat", "rice", "corn"];
 
 const agriNews = [
 	{
@@ -344,3 +348,81 @@ async function checkWeather(coords) {
 }
 
 getLocation();
+
+const getCommodityPrice = async (crop) => {
+	const url = `https://commodity-rates-api.p.rapidapi.com/open-high-low-close/2022-01-10?base=inr&symbols=${crop}`;
+	const options = {
+		method: "GET",
+		headers: {
+			"content-type": "application/octet-stream",
+			"X-RapidAPI-Key":
+				"8048530456mshd702a7e93d8d947p133668jsn0dcdbe319bbd",
+			"X-RapidAPI-Host": "commodity-rates-api.p.rapidapi.com",
+		},
+	};
+
+	try {
+		const response = await fetch(url, options);
+		const result = await response.json();
+		return result;
+	} catch (error) {
+		console.error(error);
+	}
+};
+
+const commodity = [
+	{
+		success: true,
+		timestamp: 1682400925,
+		date: "2022-01-10",
+		base: "inr",
+		symbol: "CORN",
+		rates: {
+			open: 74.29160972443,
+			high: 74.65029495294,
+			low: 0.0016454769736842,
+			close: 0.001668528553564,
+		},
+		unit: "per bushel",
+	},
+	{
+		success: true,
+		timestamp: 1682400808,
+		date: "2022-01-10",
+		base: "inr",
+		symbol: "RICE",
+		rates: {
+			open: 74.29160972443,
+			high: 74.30029495294,
+			low: 0.068782668500688,
+			close: 0.068834938101788,
+		},
+		unit: "per cwt",
+	},
+	{
+		success: true,
+		timestamp: 1682400925,
+		date: "2022-01-10",
+		base: "inr",
+		symbol: "WHEAT",
+		rates: {
+			open: 74.29160972443,
+			high: 74.35029495294,
+			low: 0.0036202714932127,
+			close: 0.003636621253406,
+		},
+		unit: "per metric ton",
+	},
+];
+
+// cropsToMonitor.forEach(async (crop) => {
+// 	const response = commodity;
+// 	console.log(response);
+// 	cornPriceEl.innerHTML = `  ${Math.ceil(response.rates.high)}`;
+// });
+
+const response = commodity;
+console.log(response);
+cornPriceEl.innerHTML = `${response[0].rates.high.toFixed(2)}`;
+ricePriceEl.innerHTML = `  ${response[1].rates.high.toFixed(2)}`;
+wheatPriceEl.innerHTML = `  ${response[2].rates.high.toFixed(2)}`;

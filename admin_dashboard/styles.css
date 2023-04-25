@@ -148,7 +148,7 @@ b {
 aside {
 	height: 100vh;
 	background-color: rgb(240, 234, 234);
-	width: 15%;
+	width: 20%;
 }
 
 aside .top {
@@ -680,9 +680,12 @@ main .weather-price-div h2 {
 
 .weather--container {
 	width: 40%;
-	background-color: white;
     padding: 1rem;
     border-radius: var(--border-radius-2);
+}
+
+.weather{
+    	background-color: white;
 }
 
 .header {
@@ -788,4 +791,74 @@ main .weather-price-div h2 {
 }
 .location-not-found img {
 	width: 80%;
+}
+
+
+/* Crop pricing */
+
+
+
+ .crop--pricing
+{
+    margin-top: 2rem;
+    width: 40%;
+}
+
+ .crop--pricing h2{
+
+    margin-bottom: 0.8rem;
+}
+
+.crop--icons{
+    width: 2.4rem;
+}
+
+ .crop--pricing .item{
+    background: var(--color-white);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.7rem;
+    padding: 1.4rem var(--card-padding);
+    border-radius: var(--border-radius-3);
+    box-shadow: var(--box-shadow);
+    transition: all 300ms ease;
+}
+
+.crop--pricing--heading{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+ .crop--pricing .item:hover{
+    box-shadow: none;
+}
+ .crop--pricing .item .right{
+
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    margin: 0;
+    width: 100%;
+}
+
+ .crop--pricing .item .icon{
+        padding: 0.6rem;
+        color: var(--color-white);
+        border-radius: 50%;
+        background: var(--color-primary);
+        display: flex;
+}
+ .crop--pricing .item.rice .icon{
+            background: var(--color-danger);
+}
+
+ .crop--pricing .item.corn .icon{
+    background: var(--color-success);
+}
+
+.crop-unit{
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin-right: 2rem;
 }
